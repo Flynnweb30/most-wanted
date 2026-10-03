@@ -1,0 +1,11 @@
+{
+  "name": "Most Wanted",
+  "short_name": "Most Wanted",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080808",
+  "theme_color": "#080808",
+  "icons": [
+    {"src":"/favicon.png","sizes":"67x25","type":"image/png"}
+  ]
+}

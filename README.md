@@ -1,20 +1,28 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Most Wanted — production static website
 
-# Run and deploy your AI Studio app
+A true multi-page React/Vite site for Most Wanted. Each primary page is a separate HTML entry point, while shared UI is rendered from the same React component system.
 
-This contains everything you need to run your app locally.
+## Pages
+- `/` — Home
+- `/services/` — Services
+- `/results/` — Results / Case Studies
+- `/about/` — About
+- `/faq/` — FAQ
+- `/contact/` — Contact
 
-View your app in AI Studio: https://ai.studio/apps/abba47f5-82cf-4e53-85bb-da99a13db94f
+## Run locally
+```bash
+npm ci
+npm run lint
+npm run build
+npm run dev
+```
 
-## Run Locally
+## Render Static Site
+`render.yaml` is configured for a static site and builds with `npm ci && npm run lint && npm run build`. Publish directory is `dist`.
 
-**Prerequisites:**  Node.js
+## Brand asset
+`public/most-wanted-logo.png` and `public/favicon.png` are the supplied official Most Wanted logo image. The favicon is used on every HTML entry point.
 
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Deployment metadata
+Canonical URLs and the sitemap currently use `https://getmostwanted.com/`. If the final production domain differs, update the canonical/OG URLs in the six HTML entry points plus `public/robots.txt` and `public/sitemap.xml` before launch.
