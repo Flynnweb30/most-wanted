@@ -1,28 +1,44 @@
-# Most Wanted — production static website
+# Most Wanted — Production Static Website
 
-A true multi-page React/Vite site for Most Wanted. Each primary page is a separate HTML entry point, while shared UI is rendered from the same React component system.
+Original, dependency-free multi-page website for Most Wanted, a digital marketing agency.
 
 ## Pages
-- `/` — Home
-- `/services/` — Services
-- `/results/` — Results / Case Studies
-- `/about/` — About
-- `/faq/` — FAQ
-- `/contact/` — Contact
 
-## Run locally
+- `/`
+- `/services/`
+- `/about/`
+- `/results/`
+- `/faq/`
+- `/contact/`
+
+## Deployment
+
+This project intentionally uses plain HTML, CSS and JavaScript. There is no npm install, bundler or client-side router, so it can be deployed as a true multi-page static site with minimal attack surface and fast cold loads.
+
+### Render Static Site
+
+- **Service type:** Static Site
+- **Name:** `most-wanted-agency`
+- **Build Command:** `echo "No build step required"`
+- **Publish Directory:** `.`
+- **Auto-Deploy:** Yes (recommended)
+
+The repository root should contain `index.html`, the page directories and `assets/`.
+
+### Important URL configuration
+
+The supplied production metadata uses `https://most-wanted-agency.onrender.com` as the canonical site URL. If Render assigns a different service URL or you connect a custom domain, update the canonical URLs, Open Graph URLs, sitemap and robots sitemap URL in all six HTML pages plus `sitemap.xml` and `robots.txt`.
+
+### Contact form
+
+The form uses a native `mailto:` handoff and requires no server. The current destination is `hello@mostwanted.agency`. Replace that address in `contact/index.html`, `assets/site.js`, the footer and JSON-LD if a different mailbox will be used.
+
+## Local test
+
+Run a simple server from the project root:
+
 ```bash
-npm ci
-npm run lint
-npm run build
-npm run dev
+python3 -m http.server 8000
 ```
 
-## Render Static Site
-`render.yaml` is configured for a static site and builds with `npm ci && npm run lint && npm run build`. Publish directory is `dist`.
-
-## Brand asset
-`public/most-wanted-logo.png` and `public/favicon.png` are the supplied official Most Wanted logo image. The favicon is used on every HTML entry point.
-
-## Deployment metadata
-Canonical URLs and the sitemap currently use `https://getmostwanted.com/`. If the final production domain differs, update the canonical/OG URLs in the six HTML entry points plus `public/robots.txt` and `public/sitemap.xml` before launch.
+Then open `http://localhost:8000/`.
