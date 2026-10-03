@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import Logo from './Logo';
+import portfolioFintechImage from '../assets/images/portfolio_fintech_showcase_1790990940671.jpg';
+import portfolioEcommerceImage from '../assets/images/portfolio_ecommerce_showcase_1790990953376.jpg';
+import aiCaseStudyImage from '../assets/images/case_study_ai_real_1790990124721.jpg';
+import seoCaseStudyImage from '../assets/images/case_study_seo_real_1790990113917.jpg';
 import { ArrowUpRight, Check, X, Layers, ExternalLink, ShieldCheck, TrendingUp, Sparkles, MapPin, PhoneCall } from 'lucide-react';
 import { PageRoute } from './Navbar';
 
@@ -45,7 +49,7 @@ export default function PortfolioPage({
       headline: 'Securing #1 Google Maps 3-Pack Across 14 Zip Codes in Greater Austin',
       summary:
         'Beacon Dental was buried on page 3 of Google Maps, losing high-value implant and cosmetic cases to corporate dental chains. We overhauled their Google Business Profile, established a local citation graph, and structured local schema that surged monthly new patient inquiries by +215%.',
-      image: '/src/assets/images/portfolio_fintech_showcase_1790990940671.jpg',
+      image: portfolioFintechImage,
       primaryMetric: '+215%',
       metricLabel: 'Inbound Patient Calls',
       secondaryMetrics: [
@@ -74,7 +78,7 @@ export default function PortfolioPage({
       headline: 'Sub-0.4s Mobile Architecture Yielding $4.2M in Qualified Project Consults',
       summary:
         'Prestige builds $1.5M+ custom homes, but their old WordPress website was sluggish on mobile and lacked a portfolio-first conversion pathway. We launched an ultra-fast headless React web experience that doubled consultation requests from affluent homeowners.',
-      image: '/src/assets/images/portfolio_ecommerce_showcase_1790990953376.jpg',
+      image: portfolioEcommerceImage,
       primaryMetric: '+184%',
       metricLabel: 'Qualified Project Consultations',
       secondaryMetrics: [
@@ -103,7 +107,7 @@ export default function PortfolioPage({
       headline: 'Instant 15-Second Missed-Call Recovery Capturing 18 High-Value Cases/Month',
       summary:
         'When accident victims call an attorney, they call the first number that answers. Vanguard was missing 30% of calls after hours and on weekends. We deployed our instant SMS text-back system that qualifies claimants within 15 seconds.',
-      image: '/src/assets/images/case_study_ai_real_1790990124721.jpg',
+      image: aiCaseStudyImage,
       primaryMetric: '18 Cases',
       metricLabel: 'Retained Monthly from Missed Calls',
       secondaryMetrics: [
@@ -132,7 +136,7 @@ export default function PortfolioPage({
       headline: 'Displacing Regional Franchisees to Secure #1 Local 3-Pack in King County',
       summary:
         'Cascade had 40 technicians ready to deploy, but their Google Maps rankings lagged behind national chains. We deployed city-specific landing pages and an automated review pipeline that earned 220+ verified 5-star reviews in 90 days.',
-      image: '/src/assets/images/case_study_seo_real_1790990113917.jpg',
+      image: seoCaseStudyImage,
       primaryMetric: '+290%',
       metricLabel: 'Inbound Emergency Service Calls',
       secondaryMetrics: [

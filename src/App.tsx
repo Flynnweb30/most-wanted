@@ -16,38 +16,47 @@ import ResourcesPage from './components/ResourcesPage';
 import ContactPage from './components/ContactPage';
 import Footer from './components/Footer';
 
-export default function App() {
-  const [currentPage, setCurrentPage] = useState<PageRoute>('home');
-  const [preselectedService, setPreselectedService] = useState<string | undefined>(undefined);
+const VALID_PAGE_ROUTES: PageRoute[] = ['about', 'services', 'portfolio', 'resources', 'contact'];
 
-  // Parse route from both pathname and hash for seamless SPA routing on Render & local dev
-  const parseCurrentRoute = (): PageRoute => {
-    if (typeof window === 'undefined') return 'home';
-    
-    // Check pathname (e.g. /about, /services, /portfolio, /resources, /contact)
-    const path = window.location.pathname.replace(/^\//, '').toLowerCase().split('/')[0];
-    if (['about', 'services', 'portfolio', 'resources', 'contact'].includes(path)) {
-      return path as PageRoute;
-    }
-    
-    // Check hash fallback (e.g. #about, #services, #portfolio, #resources, #contact)
-    const hash = window.location.hash.replace('#', '').toLowerCase();
-    if (['about', 'services', 'portfolio', 'resources', 'contact'].includes(hash)) {
-      return hash as PageRoute;
-    }
-    
-    return 'home';
-  };
+// Parse route from both pathname and hash for seamless SPA routing on Render & local dev.
+const parseCurrentRoute = (): PageRoute => {
+  if (typeof window === 'undefined') return 'home';
+
+  const path = window.location.pathname.replace(/^\/+/, '').toLowerCase().split('/')[0];
+  if (VALID_PAGE_ROUTES.includes(path as PageRoute)) {
+    return path as PageRoute;
+  }
+
+  const hash = window.location.hash.replace(/^#/, '').toLowerCase();
+  if (VALID_PAGE_ROUTES.includes(hash as PageRoute)) {
+    return hash as PageRoute;
+  }
+
+  return 'home';
+};
+
+export default function App() {
+  const [currentPage, setCurrentPage] = useState<PageRoute>(() => parseCurrentRoute());
+  const [preselectedService, setPreselectedService] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     const handleRouteChange = () => {
       const targetPage = parseCurrentRoute();
       setCurrentPage(targetPage);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
 
-    // Initialize route on mount
-    setCurrentPage(parseCurrentRoute());
+      const anchor = window.location.hash.replace(/^#/, '');
+      if (targetPage === 'home' && anchor) {
+        // Wait for the homepage to render before locating the target section.
+        setTimeout(() => {
+          document.getElementById(anchor)?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+          });
+        }, 80);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    };
 
     window.addEventListener('popstate', handleRouteChange);
     window.addEventListener('hashchange', handleRouteChange);
@@ -61,16 +70,18 @@ export default function App() {
     setCurrentPage(page);
 
     if (page === 'home') {
+      const targetUrl = anchor ? `/#${anchor}` : '/';
+      window.history.pushState(null, '', targetUrl);
+
       if (anchor) {
-        window.location.hash = anchor;
+        // Allow React to render the homepage before locating the target section.
         setTimeout(() => {
           const el = document.getElementById(anchor);
           if (el) {
-            el.scrollIntoView({ behavior: 'smooth' });
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
         }, 80);
       } else {
-        window.history.pushState(null, '', '/');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     } else {
@@ -137,16 +148,17 @@ export default function App() {
             {/* REST OF THE SITE: Balanced High-Contrast Lighter Palette */}
             <ClientTicker />
 
+            {/* THIRD HOMEPAGE SECTION: VERIFIED WORK & LOCAL IMPACT */}
+            <CaseStudies
+              onNavigateToContact={() => handleNavigate('contact')}
+            />
+
             <Services
               onSelectService={handleNavigateToContactWithService}
             />
 
             <Packages
               onSelectPackage={handleNavigateToContactWithService}
-            />
-
-            <CaseStudies
-              onNavigateToContact={() => handleNavigate('contact')}
             />
 
             <GrowthCalculator

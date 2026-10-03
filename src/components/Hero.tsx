@@ -1,5 +1,6 @@
 import React from 'react';
 import Logo from './Logo';
+import heroImage from '../assets/images/local_business_hero_1790992271022.jpg';
 import { ArrowUpRight, Globe, Search, Megaphone, Mail, PhoneCall, Sparkles } from 'lucide-react';
 
 interface HeroProps {
@@ -112,7 +113,7 @@ export default function Hero({ onNavigateToContact, onExploreCapabilities }: Her
               {/* Studio & Growth Visual */}
               <div className="relative h-56 sm:h-64 -mx-6 -mt-6 mb-5 overflow-hidden border-b border-zinc-800 bg-zinc-900">
                 <img
-                  src="/src/assets/images/local_business_hero_1790992271022.jpg"
+                  src={heroImage}
                   alt="Modern American business studio and client consultation room"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-95"

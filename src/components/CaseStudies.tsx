@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { ArrowUpRight, Check, X, MapPin, Sparkles } from 'lucide-react';
+import beaconDentalImage from '../assets/images/case_study_seo_real_1790990113917.jpg';
+import prestigeHomesImage from '../assets/images/case_study_web_real_1790990101247.jpg';
+import vanguardLawImage from '../assets/images/case_study_ai_real_1790990124721.jpg';
 
 interface CaseStudiesProps {
   onNavigateToContact: () => void;
@@ -36,7 +39,7 @@ export default function CaseStudies({ onNavigateToContact }: CaseStudiesProps) {
       city: 'Austin, TX',
       category: 'maps',
       headline: 'Securing #1 Google Maps 3-Pack Across 14 Greater Austin Zip Codes',
-      image: '/src/assets/images/portfolio_fintech_showcase_1790990940671.jpg',
+      image: beaconDentalImage,
       primaryMetric: '+215%',
       primaryLabel: 'Inbound Patient Calls',
       secondaryMetric: '#1 Rank',
@@ -63,7 +66,7 @@ export default function CaseStudies({ onNavigateToContact }: CaseStudiesProps) {
       city: 'Denver, CO',
       category: 'website',
       headline: 'Sub-0.4s Mobile Architecture Yielding $4.2M in Contracted Projects',
-      image: '/src/assets/images/portfolio_ecommerce_showcase_1790990953376.jpg',
+      image: prestigeHomesImage,
       primaryMetric: '+184%',
       primaryLabel: 'Consultation Inquiries',
       secondaryMetric: '0.36s',
@@ -90,7 +93,7 @@ export default function CaseStudies({ onNavigateToContact }: CaseStudiesProps) {
       city: 'Chicago, IL',
       category: 'ai',
       headline: '15-Second Missed-Call Recovery Capturing 18 Retained Cases Monthly',
-      image: '/src/assets/images/case_study_ai_real_1790990124721.jpg',
+      image: vanguardLawImage,
       primaryMetric: '18 Cases',
       primaryLabel: 'Retained Monthly via SMS',
       secondaryMetric: '< 15 sec',

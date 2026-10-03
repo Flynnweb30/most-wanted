@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Logo from './Logo';
+import localSearchImage from '../assets/images/local_business_mobile_search_1790992290957.jpg';
 import { ArrowUpRight, BookOpen, Clock, Calendar, X, ArrowLeft, Bookmark, Share2, Sparkles } from 'lucide-react';
 import { PageRoute } from './Navbar';
 
@@ -175,7 +176,7 @@ export default function ResourcesPage({ onNavigateToContact, onNavigate }: Resou
               <div className="lg:col-span-5 order-2 lg:order-1">
                 <div className="relative border border-zinc-200 overflow-hidden bg-zinc-100">
                   <img
-                    src="/src/assets/images/local_business_mobile_search_1790992290957.jpg"
+                    src={localSearchImage}
                     alt="Smartphone on desk showing top local Google search results"
                     referrerPolicy="no-referrer"
                     className="w-full h-64 sm:h-72 object-cover"

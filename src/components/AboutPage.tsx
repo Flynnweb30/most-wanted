@@ -1,5 +1,6 @@
 import React from 'react';
 import Logo from './Logo';
+import teamWorkspaceImage from '../assets/images/about_team_workspace_1790990928663.jpg';
 import { ArrowUpRight, Check, ShieldCheck, Terminal, Users, Cpu, Target, Sparkles, MapPin } from 'lucide-react';
 import { PageRoute } from './Navbar';
 
@@ -107,7 +108,7 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
             <div className="lg:col-span-6">
               <div className="relative border border-zinc-200 shadow-md overflow-hidden group">
                 <img
-                  src="/src/assets/images/about_team_workspace_1790990928663.jpg"
+                  src={teamWorkspaceImage}
                   alt="Most Wanted Studio Team Collaboration"
                   referrerPolicy="no-referrer"
                   className="w-full h-80 sm:h-96 object-cover group-hover:scale-102 transition-transform duration-500"
